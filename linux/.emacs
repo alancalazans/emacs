@@ -29,7 +29,7 @@
 	'(tooltip-mode nil))
 
 (setq load-path
-	(append '("~/.emacs.d/themes" "~/.emacs.d/packages/duplicate-thing" "~/.emacs.d/packages/web-mode" "~/.emacs.d/packages/emacs-neotree" "~/.emacs.d/packages/move-text" "~/.emacs.d/packages/quickrun" "~/.emacs.d/packages/emmet-mode" "~/.emacs.d/packages/php-mode" "~/.emacs.d/packages/yasnippet" "~/.emacs.d/packages/Highlight-Indentation-for-Emacs" "~/.emacs.d/packages/go-mode")
+	(append '("~/.emacs.d/themes" "~/.emacs.d/packages/duplicate-thing" "~/.emacs.d/packages/web-mode" "~/.emacs.d/packages/emacs-neotree" "~/.emacs.d/packages/move-text" "~/.emacs.d/packages/quickrun" "~/.emacs.d/packages/emmet-mode" "~/.emacs.d/packages/php-mode" "~/.emacs.d/packages/yasnippet" "~/.emacs.d/packages/go-mode")
 	load-path))
 
 ;;==============================================================================
@@ -73,7 +73,7 @@
 ;;==============================================================================
 ;; ## Neotree - https://github.com/jaypei/emacs-neotree
 (require 'neotree)
-(global-set-key [f2] 'neotree-toggle)
+(global-set-key (kbd "C-b") 'neotree-toggle)
 
 ;;==============================================================================
 ;; ## Move-Text - https://github.com/emacsfodder/move-text
@@ -84,7 +84,11 @@
 ;; ## QuickRun - https://github.com/syohex/emacs-quickrun
 (require 'quickrun)
 ;; You should assign key binding, if you often use `quickrun' commands.
-(global-set-key (kbd "<f5>") 'quickrun)
+;; You can override existing command
+(quickrun-add-command "c/gcc"
+  '((:exec . ("%c %o -o %e %s" "%e %a")))
+  :override t)
+(global-set-key (kbd "C-.") 'quickrun-shell)
 
 ;;==============================================================================
 ;; ## Emmet - https://github.com/smihica/emmet-mode
@@ -92,6 +96,7 @@
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 (setq emmet-move-cursor-between-quotes t) ;; default nil
+(global-set-key (kbd "C-,") 'emmet-expand-line) ;; Expand abbreviation
 
 ;;==============================================================================
 ;; ## PHP - https://sourceforge.net/projects/php-mode/
@@ -104,7 +109,7 @@
 
 ;;==============================================================================
 ;; ## Limpando espaços em branco nos finais das linhas
-(global-set-key [f8] 'delete-trailing-whitespace)
+(global-set-key (kbd "C-l") 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;==============================================================================
@@ -148,10 +153,8 @@
 ;;==============================================================================
 ;; ## Define F3 para pesquisar e Shift+F3 para pesquisar próxima
 (global-set-key (kbd "C-f") 'isearch-forward)
-(define-key isearch-mode-map (kbd "<f3>")
-'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "S-<f3>")
-'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "<f3>") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "S-<f3>") 'isearch-repeat-backward)
 
 ;;==============================================================================
 ;; ## Abre o emacs sem a janela de boas vindas.
