@@ -82,13 +82,9 @@
 
 ;;==============================================================================
 ;; ## QuickRun - https://github.com/syohex/emacs-quickrun
-(require 'quickrun)
+;;(require 'quickrun)
 ;; You should assign key binding, if you often use `quickrun' commands.
 ;; You can override existing command
-(quickrun-add-command "c/gcc"
-  '((:exec . ("%c %o -o %e %s" "%e %a")))
-  :override t)
-(global-set-key (kbd "C-.") 'quickrun-shell)
 
 ;;==============================================================================
 ;; ## Emmet - https://github.com/smihica/emmet-mode
@@ -122,7 +118,7 @@
 ;; ## Tamanho da janela
 (setq initial-frame-alist
 	'(
-		(width . 80)
+		(width . 90)
 		(height . 30)
 	 )
 )
