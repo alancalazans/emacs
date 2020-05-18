@@ -51,6 +51,7 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 (setq web-mode-markup-indent-offset 2)
@@ -126,7 +127,6 @@
 
 ;;==============================================================================
 ;; ## Go-mode - https://github.com/dominikh/go-mode.el
-(add-to-list 'load-path "~/.emacs.d/packages/go-mode")
 (autoload 'go-mode "go-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 
