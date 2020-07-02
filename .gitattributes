@@ -1,2 +1,4 @@
 # Declare os arquivos que sempre terão delimitadores de linha CRLF ao fazer checkout.
 .emacs text eol=lf
+linux.emacs text eol=lf
+
