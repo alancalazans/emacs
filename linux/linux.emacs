@@ -29,7 +29,16 @@
 	'(tooltip-mode nil))
 
 (setq load-path
-	(append '("~/.emacs.d/themes" "~/.emacs.d/packages/duplicate-thing" "~/.emacs.d/packages/web-mode" "~/.emacs.d/packages/emacs-neotree" "~/.emacs.d/packages/move-text" "~/.emacs.d/packages/quickrun" "~/.emacs.d/packages/emmet-mode" "~/.emacs.d/packages/php-mode" "~/.emacs.d/packages/yasnippet" "~/.emacs.d/packages/go-mode")
+	(append '("~/.emacs.d/themes"
+						"~/.emacs.d/packages/duplicate-thing"
+						"~/.emacs.d/packages/web-mode"
+						"~/.emacs.d/packages/emacs-neotree"
+						"~/.emacs.d/packages/move-text"
+						"~/.emacs.d/packages/quickrun"
+						"~/.emacs.d/packages/emmet-mode"
+						"~/.emacs.d/packages/php-mode"
+						"~/.emacs.d/packages/yasnippet"
+						"~/.emacs.d/packages/go-mode")
 	load-path))
 
 ;;==============================================================================
@@ -218,7 +227,7 @@
 ;;==============================================================================
 ;; ## Tipo e tamanho da fonte do editor.
 ;;(set-default-font "Ubuntu Mono-13")
-(set-default-font "Consolas-11")
+(set-default-font "Monospace-12")
 
 ;;==============================================================================
 ;; ## Ativando o Syntax Hilighting
