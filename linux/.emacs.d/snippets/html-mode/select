@@ -1,8 +1,0 @@
-#contributor : Alan Calazans <alan2calazans@gmail.com>
-#name : select
-# --
-<select id="$1" name="$2">
-	<optgroup label="$3">
-		<option value="$4">$5</option>
-	</optgroup>
-</select>

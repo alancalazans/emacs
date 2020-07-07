@@ -1,4 +1,0 @@
-#contributor : Alan Calazans <alan2calazans@gmail.com>
-#name : button
-# --
-<button type="${1:button, reset, submit}">${2:label}</button>

@@ -1,6 +1,0 @@
-#contributor : Alan Calazans <alan2calazans@gmail.com>
-#name : div-id
-# --
-<div id="$1">
-	$2
-</div>
