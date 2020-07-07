@@ -1,0 +1,7 @@
+gcc -std=c++1z  -o /home/calazans/Workspace/c/qr_cvzOmq.out qr_cvzOmq.c && /home/calazans/Workspace/c/qr_cvzOmq.out 
+gcc  -o /home/calazans/Workspace/c/qr_lxfxfi qr_lxfxfi.c && /home/calazans/Workspace/c/qr_lxfxfi.out 
+gcc  -o /home/calazans/Workspace/c/qr_zfVoQt qr_zfVoQt.c && /home/calazans/Workspace/c/qr_zfVoQt.out 
+gcc  -o /home/calazans/Workspace/c/qr_vt7yW8.out qr_vt7yW8.c && /home/calazans/Workspace/c/qr_vt7yW8.out 
+gcc  -o /home/calazans/Workspace/c/qr_ksU66f.out qr_ksU66f.c && /home/calazans/Workspace/c/qr_ksU66f.out 
+gcc  -o /home/calazans/Workspace/c/qr_ksU66f.out qr_ksU66f.c && /home/calazans/Workspace/c/qr_ksU66f.out 
+gcc  -o /home/calazans/Workspace/c/qr_AbCRLl qr_AbCRLl.c && /home/calazans/Workspace/c/qr_AbCRLl 

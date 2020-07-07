@@ -1,0 +1,6 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : div-class
+# --
+<div class="$1">
+	$2
+</div>

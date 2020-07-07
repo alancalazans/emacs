@@ -1,0 +1,4 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : script-src
+# --
+<script src="assets/js/$1.js"></script>

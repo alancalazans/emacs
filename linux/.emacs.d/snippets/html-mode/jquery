@@ -1,0 +1,8 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : jquery
+# --
+<script type="text/javascript">
+	$(document).ready(function(){
+		$1
+	});
+</script>

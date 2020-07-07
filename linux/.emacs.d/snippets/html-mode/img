@@ -1,0 +1,4 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : img
+# --
+<img src="$1" width="$2" height="$3" title="$4" alt="$5" />

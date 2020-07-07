@@ -1,0 +1,7 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : fieldset
+# --
+<fieldset>
+<legend>$1</legend>
+$2
+</fieldset>

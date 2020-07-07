@@ -1,0 +1,4 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : input
+# --
+<input type="text" id="$1" name="$2" value="$3">

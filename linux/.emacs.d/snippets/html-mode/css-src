@@ -1,0 +1,4 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : css-src
+# --
+<link rel="stylesheet" href="assets/$1">

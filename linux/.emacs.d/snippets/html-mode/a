@@ -1,0 +1,4 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : a
+# --
+<a href="${1:#}">${2}</a>

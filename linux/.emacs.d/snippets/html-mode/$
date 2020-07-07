@@ -1,0 +1,8 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : $
+# --
+<script type="text/javascript">
+	$(function(){
+		$0
+	});
+</script>

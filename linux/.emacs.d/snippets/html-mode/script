@@ -1,0 +1,6 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : script
+# --
+<script>
+	$1
+</script>

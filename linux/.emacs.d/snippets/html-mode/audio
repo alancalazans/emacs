@@ -1,0 +1,7 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : <audio>
+# --
+<!-- Outros parâmetros: autoplay loop -->
+<audio controls>
+	<source src="assets/audio/$0.mp3" type="audio/mp3" />
+</audio>

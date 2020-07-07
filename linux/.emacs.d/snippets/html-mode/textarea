@@ -1,0 +1,4 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : textarea
+# --
+<textarea id="$1" name="$2" cols="50" rows="10" >$3</textarea>

@@ -1,0 +1,4 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : checkbox
+# --
+<input type="checkbox" name="${1}" value="${2}" />

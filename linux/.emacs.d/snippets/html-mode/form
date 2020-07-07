@@ -1,0 +1,8 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : <form>
+# --
+<form action="${1:url}" method="${2:get or post}">
+
+	<input type="submit" value="${3:send value}" />
+
+</form>

@@ -1,0 +1,4 @@
+#contributor : Alan Calazans <alan2calazans@gmail.com>
+#name : radio
+# --
+<input type="radio" name="$1" value="$2" />
