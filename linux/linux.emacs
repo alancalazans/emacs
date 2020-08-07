@@ -231,7 +231,8 @@
 ;;==============================================================================
 ;; ## Tipo e tamanho da fonte do editor.
 ;;(set-default-font "Ubuntu Mono-13")
-(set-default-font "Monospace-12")
+;;(set-default-font "Monospace-12")
+(set-default-font "Consolas-11")
 
 ;;==============================================================================
 ;; ## Ativando o Syntax Hilighting
