@@ -27,7 +27,7 @@
  '(indicate-buffer-boundaries 'left)
  '(js2-indent-on-enter-key t)
  '(package-selected-packages
-   '(nim-mode timu-caribbean-theme timu-macos-theme move-text try use-package))
+   '(yasnippet nim-mode timu-caribbean-theme timu-macos-theme move-text try use-package))
  '(py-python-command "ipython")
  '(python-python-command "ipython")
  '(python-use-skeletons t)
@@ -37,7 +37,10 @@
  '(tab-always-ident t)
  '(tooltip-mode nil))
 (custom-set-faces
- ;; custom color theme
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 ;;--- }}}
 ;;----------------------------
@@ -75,7 +78,7 @@
 ;;--------------------------
 ;;--- Numeros nas linhas ---
 ;;--------------------------
-;;(global-linum-mode t) ;; Deprecated a partir da versão 26 do emacs.
+;;(global-linum-mode t) ;; Obsoleto desde a versão 29.1 do emacs.
 (global-display-line-numbers-mode 1)
 ;;------------------------
 ;;--- Tamanho da fonte ---
@@ -111,6 +114,7 @@
 ;;---------------------
 ;;--- Tab ident {{{ ---
 ;;---------------------
+(setq-default electric-indent-inhibit t) ; Inibir o  recuo da linha anterior quando pressiona enter
 (setq-default electric-indent-mode nil) ; Desabilita a indentação automática em novas linhas
 ;;--- space ident
 (setq-default ident-tabs-mode nil) ; Desabilita tabulações como caracteres de indentação
@@ -213,4 +217,13 @@
 )
 
 (add-hook 'nim-mode-hook 'my--init-nim-mode)
+;;--- }}}
+;;---------------------
+;;--- YASNIPPET {{{ ---
+;;---------------------
+;;--- https://github.com/joaotavora/yasnippet
+(add-to-list 'load-path
+              "~/.emacs.d/elpa/yasnippet-20240406.1314")
+(require 'yasnippet)
+(yas-global-mode 1)
 ;;--- }}}
