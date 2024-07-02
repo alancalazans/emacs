@@ -53,9 +53,9 @@
 ;;--- TIMU-CARIBBEAN-THEME
 ;;--- Para instalar:
 ;;--- `M-x package-install RET timu-caribbean-theme RET`.
-;;(load-theme 'timu-caribbean t)
+(load-theme 'timu-caribbean t)
 ;;(load-theme 'zenburn t)
-(load-theme 'timu-macos t)
+;;(load-theme 'timu-macos t)
 ;;(load-file "~/.emacs.d/masked-theme.el")
 ;;(load-theme 'masked t)
 ;;---------------------------
@@ -107,7 +107,7 @@
 (setq initial-frame-alist
   '(
     (width . 80)
-    (height . 40)
+    (height . 35)
   )
 )
 ;;--- }}}
