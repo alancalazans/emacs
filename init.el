@@ -27,7 +27,7 @@
  '(indicate-buffer-boundaries 'left)
  '(js2-indent-on-enter-key t)
  '(package-selected-packages
-   '(yasnippet nim-mode timu-caribbean-theme timu-macos-theme move-text try use-package))
+   '(lsp-mode yasnippet nim-mode timu-caribbean-theme timu-macos-theme move-text try use-package))
  '(py-python-command "ipython")
  '(python-python-command "ipython")
  '(python-use-skeletons t)
@@ -188,7 +188,7 @@
 ;;--- https://github.com/nim-lang/nim-mode
 ;; The `nimsuggest-path' will be set to the value of
 ;; (executable-find "nimsuggest"), automatically.
-;;(setq nimsuggest-path "path/to/nimsuggest")
+(setq nimsuggest-path "~/.nimble/bin")
 
 (defun my--init-nim-mode ()
   "Local init function for `nim-mode'."
@@ -227,3 +227,7 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 ;;--- }}}
+(use-package nim-mode
+  :ensure t
+  :config
+  (add-hook 'nim-mode-hook #'lsp-deferred))
