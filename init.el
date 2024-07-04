@@ -227,7 +227,12 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 ;;--- }}}
+;;--------------------
+;;--- NIM-LSP {{{ ---
+;;--------------------
+;; https://emacs-lsp.github.io/lsp-mode/page/languages
 (use-package nim-mode
   :ensure t
   :config
   (add-hook 'nim-mode-hook #'lsp-deferred))
+;;--- }}}
