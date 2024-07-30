@@ -1,7 +1,7 @@
 ;;-------------------------------------------------------
 ;;--- File: init.el                                   ---
 ;;--- Author: Alan Calazans <alan2calazans@gmail.com  ---
-;;--- Last Update: qui 27 jun 2024 09:53:00 BRT       ---
+;;--- Last Update: ter 30 jul 2024 07:58:00 BRT       ---
 ;;--- Created: dom 20 set 2020 17:38:00 BRT           ---
 ;;--- License: GNU General Public License v3          ---
 ;;---          <http://www.gnu.org/licenses/gpl.html> ---
@@ -52,7 +52,7 @@
 ;;--- Themes Gallery: https://emacsthemes.com/
 ;;--- TIMU-CARIBBEAN-THEME
 ;;--- Para instalar:
-;;--- `M-x package-install RET timu-caribbean-theme RET`.
+;;--- `M-x package-install <ENTER> timu-caribbean-theme <ENTER>`.
 (load-theme 'timu-caribbean t)
 ;;(load-theme 'zenburn t)
 ;;(load-theme 'timu-macos t)
@@ -114,10 +114,10 @@
 ;;---------------------
 ;;--- Tab ident {{{ ---
 ;;---------------------
-(setq-default electric-indent-inhibit t) ; Inibir o  recuo da linha anterior quando pressiona enter
-(setq-default electric-indent-mode nil) ; Desabilita a indentação automática em novas linhas
+(setq-default electric-indent-inhibit t) ;;Inibir o  recuo da linha anterior quando pressiona <ENTER>
+(setq-default electric-indent-mode nil)  ;;Desabilita a indentação automática em novas linhas
 ;;--- space ident
-(setq-default ident-tabs-mode nil) ; Desabilita tabulações como caracteres de indentação
+(setq-default ident-tabs-mode nil) ;;Desabilita tabulações como caracteres de indentação
 (setq tabify nil)
 ;;--- tab ident
 ;;(setq-default indent-tabs-mode t)
@@ -146,8 +146,8 @@
 ;;--------------------------------------------
 ;;--- Desativa o auto salvar e auto backup ---
 ;;--------------------------------------------
-(setq auto-save-default nil) ;; Para o #autosave#.
-(setq make-backup-files nil) ;; Para o backup~.
+(setq auto-save-default nil) ;;Para o #autosave#.
+(setq make-backup-files nil) ;;Para o backup~.
 ;;--------------------------
 ;;--- Nossos atalhos {{{ ---
 ;;--------------------------
@@ -167,20 +167,20 @@
 ;;--- Repositório de pacotes {{{ ---
 ;;----------------------------------
 (require 'package)
-;;--------------------
-;;--- MELPA stable ---
-;;--------------------
-;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-;;----------------------
-;;--- MELPA unstable ---
-;;----------------------
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
 ;;--- Observe que você precisará executar `M-x package-refresh-contents` ou `M-x package-list-packages`
 ;;--- para garantir que o Emacs buscou a lista de pacotes MELPA antes de poder instalar pacotes com
 ;;--- `M-x package-install` ou similar.
 ;;--- Para instalar um pacote, execute `M-x package-install <ENTER> <nome_pacote> <ENTER>`.
 ;;--- Maiores orientações em: `https://melpa.org/#/getting-started`.
+;;--------------------
+;;--- MELPA stable ---
+;;--------------------
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;;----------------------
+;;--- MELPA unstable ---
+;;----------------------
+;;(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 ;;--- }}}
 ;;--------------------
 ;;--- NIM-MODE {{{ ---
@@ -189,33 +189,27 @@
 ;; The `nimsuggest-path' will be set to the value of
 ;; (executable-find "nimsuggest"), automatically.
 (setq nimsuggest-path "~/.nimble/bin")
-
 (defun my--init-nim-mode ()
   "Local init function for `nim-mode'."
-
   ;; Just an example, by default these functions are
   ;; already mapped to "C-c <" and "C-c >".
   (local-set-key (kbd "M->") 'nim-indent-shift-right)
   (local-set-key (kbd "M-<") 'nim-indent-shift-left)
-
   ;; Make files in the nimble folder read only by default.
   ;; This can prevent to edit them by accident.
   (when (string-match "/\.nimble/" (or (buffer-file-name) "")) (read-only-mode 1))
-
   ;; If you want to experiment, you can enable the following modes by
   ;; uncommenting their line.
   ;; (nimsuggest-mode 1)
   ;; Remember: Only enable either `flycheck-mode' or `flymake-mode' at the same time.
   ;; (flycheck-mode 1)
   ;; (flymake-mode 1)
-
   ;; The following modes are disabled for Nim files just for the case
   ;; that they are enabled globally.
   ;; Anything that is based on smie can cause problems.
   (auto-fill-mode 0)
   (electric-indent-local-mode 0)
 )
-
 (add-hook 'nim-mode-hook 'my--init-nim-mode)
 ;;--- }}}
 ;;---------------------

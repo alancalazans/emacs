@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: readline
+# key: readline
+# --
+stdin.readline()
