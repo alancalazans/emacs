@@ -8,9 +8,9 @@
 ;;--- Version: 1.1                                    ---
 ;;-------------------------------------------------------
 
-;;---------------------------
-;;--- Configurações gerais --
-;;---------------------------
+;;----------------------------
+;;--- Configurações gerais ---
+;;----------------------------
 (custom-set-variables
  ;; custom-set-variables foi adicionado pelo Custom.
  ;; Edite com cuidado. Seu arquivo init deve conter apenas uma instância.
@@ -37,9 +37,9 @@
  ;; Edite com cuidado.
  )
 
-;;----------------------------
-;;--- Configurações Visuais -
-;;----------------------------
+;;-----------------------------
+;;--- Configurações Visuais ---
+;;-----------------------------
 ;; Tema
 (load-theme 'timu-caribbean t)
 
@@ -69,9 +69,9 @@
       '((width . 80)
         (height . 35)))
 
-;;-----------------------
+;;----------------------------------
 ;;--- Configurações de Tabulação ---
-;;-----------------------
+;;----------------------------------
 (setq-default electric-indent-inhibit t) ;; Inibir recuo automático ao pressionar <ENTER>
 (setq-default electric-indent-mode nil)  ;; Desabilitar indentação automática
 (setq-default indent-tabs-mode nil)      ;; Usar espaços em vez de tabulações
@@ -82,9 +82,9 @@
 (setq tab-stop-list
       '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82))
 
-;;-----------------------------
-;;--- Configuração de atalhos -
-;;-----------------------------
+;;-------------------------------
+;;--- Configuração de atalhos ---
+;;-------------------------------
 (global-set-key (kbd "C-<tab>") 'other-window)
 (global-set-key (kbd "M-<down>") 'enlarge-window)
 (global-set-key (kbd "M-<up>") 'shrink-window)
@@ -95,9 +95,9 @@
 (global-set-key (kbd "C-l") 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;;-------------------------
+;;-------------------------------
 ;;--- Repositórios de Pacotes ---
-;;-------------------------
+;;-------------------------------
 (require 'package)
 
 ;; Repositórios
@@ -106,13 +106,13 @@
 
 (package-initialize)
 
-;;--------------------
+;;---------------------------
 ;;--- Configuração do Nim ---
-;;--------------------
+;;---------------------------
 ;; Caminho para o `nimsuggest` (ajustar conforme necessário)
 (setq nimsuggest-path "~/.nimble/bin")
 
-(defun my--init-nim-mode ()
+(defun my-init-nim-mode ()
   "Função de inicialização para `nim-mode`."
   (local-set-key (kbd "M->") 'nim-indent-shift-right)
   (local-set-key (kbd "M-<") 'nim-indent-shift-left)
@@ -123,7 +123,7 @@
   (electric-indent-local-mode 0)
 )
 
-(add-hook 'nim-mode-hook 'my--init-nim-mode)
+(add-hook 'nim-mode-hook 'my-init-nim-mode)
 
 ;; Configuração do LSP para Nim
 (use-package nim-mode
@@ -131,17 +131,17 @@
   :config
   (add-hook 'nim-mode-hook #'lsp-deferred))
 
-;;---------------------
+;;---------------------------------
 ;;--- Configuração do Yasnippet ---
-;;---------------------
+;;---------------------------------
 ;; Adicionar caminho do Yasnippet
 (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet-20240406.1314")
 (require 'yasnippet)
 (yas-global-mode 1)
 
-;;---------------------
+;;----------------------------
 ;;--- Outras Configurações ---
-;;---------------------
+;;----------------------------
 ;; Tornar "yes/no" em "y/n"
 (fset 'yes-or-no-p 'y-or-n-p)
 
