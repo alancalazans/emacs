@@ -1,0 +1,5 @@
+# -*- mode: snippet; jade -*-
+# name: jade
+# key: jade
+# --
+jade.compile(${1:script_jade})(${0:data})

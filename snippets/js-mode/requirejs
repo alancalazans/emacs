@@ -1,0 +1,10 @@
+# -*- mode: snippet; requirejs -*-
+# name: requirejs
+# key: requirejs
+# --
+requirejs (
+  ['${1:module}'],
+  (${2:module_alias}) => {
+    $0
+  }
+);

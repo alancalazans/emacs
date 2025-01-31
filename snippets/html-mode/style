@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# key: style
+# name: stylesheet
+# --
+<link rel="stylesheet" href="${1:style}.css">

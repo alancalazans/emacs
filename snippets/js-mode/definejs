@@ -1,0 +1,9 @@
+# -*- mode: snippet; definejs -*-
+# name: definejs
+# key: definejs
+# --
+define ([],
+  () => {
+    $0
+  }
+);

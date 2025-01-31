@@ -1,0 +1,13 @@
+# -*- mode: snippet; bootjs -*-
+# name: bootjs
+# key: bootjs
+# --
+requirejs.config({
+  baseUrl: 'assets/js',
+  paths: {
+    // vendor
+    'bootstrap': '../vendor/bootstrap/bootstrap.bundle.min',
+    // js
+    'main': 'main'
+  }
+});
