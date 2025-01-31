@@ -1,7 +1,7 @@
 ;;-------------------------------------------------------
 ;;--- File: init.el                                   ---
 ;;--- Author: Alan Calazans <alan2calazans@gmail.com> ---
-;;--- Last Update: ter 30 jul 2024 07:58:00 BRT       ---
+;;--- Last Update: qui 30 jan 2025 21:50:00 BRT       ---
 ;;--- Created: dom 20 set 2020 17:38:00 BRT           ---
 ;;--- License: GNU General Public License v3          ---
 ;;---          <http://www.gnu.org/licenses/gpl.html> ---
@@ -98,38 +98,26 @@
 ;;-------------------------------
 ;;--- Repositórios de Pacotes ---
 ;;-------------------------------
+;; Configurar repositórios de pacotes (caso ainda não esteja configurado)
 (require 'package)
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu" . "https://elpa.gnu.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-;; Repositórios
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-;;(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize) ;; Inicializar o sistema de pacotes
 
-(package-initialize)
+;; Atualizar lista de pacotes se necessário
+(unless package-archive-contents
+  (package-refresh-contents))
 
-;;---------------------------
-;;--- Configuração do Nim ---
-;;---------------------------
-;; Caminho para o `nimsuggest` (ajustar conforme necessário)
-(setq nimsuggest-path "~/.nimble/bin")
+;; Instalar `use-package` se ainda não estiver instalado
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
 
-(defun my-init-nim-mode ()
-  "Função de inicialização para `nim-mode`."
-  (local-set-key (kbd "M->") 'nim-indent-shift-right)
-  (local-set-key (kbd "M-<") 'nim-indent-shift-left)
-  ;; Tornar arquivos na pasta nimble apenas leitura
-  (when (string-match "/\\.nimble/" (or (buffer-file-name) "")) (read-only-mode 1))
-  ;; Desabilitar modos problemáticos para arquivos Nim
-  (auto-fill-mode 0)
-  (electric-indent-local-mode 0)
-)
-
-(add-hook 'nim-mode-hook 'my-init-nim-mode)
-
-;; Configuração do LSP para Nim
-(use-package nim-mode
-  :ensure t
-  :config
-  (add-hook 'nim-mode-hook #'lsp-deferred))
+;; Requerer o `use-package`
+(require 'use-package)
+(setq use-package-always-ensure t) ;; Certificar-se de que pacotes sejam instalados automaticamente
 
 ;;---------------------------------
 ;;--- Configuração do Yasnippet ---
@@ -138,6 +126,14 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet-20240406.1314")
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;;------------------------------------
+;;--- Configuração do Indent-guide ---
+;;------------------------------------
+;; Adicionar caminho do Yasnippet
+(add-to-list 'load-path "~/.emacs.d/elpa/indent-guide-20160630")
+(require 'indent-guide)
+(indent-guide-global-mode)
 
 ;;----------------------------
 ;;--- Outras Configurações ---
