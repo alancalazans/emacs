@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# key: html-reqjs
+# name: html-reqjs
+# --
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>${1:Title}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
+    <script data-main="assets/js/boot" src="assets/vendor/requirejs/require.min.js"></script>
+    <!-- <link rel="icon" type="image/x-icon" href="assets/img/png/image.png"> -->
+  </head>
+  <body>
+    $0
+  </body>
+</html>
