@@ -65,7 +65,8 @@
 (global-display-line-numbers-mode 1)
 
 ;; Configurar fonte padrão
-(set-face-attribute 'default nil :font "Consolas 10")
+(set-face-attribute 'default nil :font "Consolas 10") ;; Para Windows
+;;(set-face-attribute 'default nil :font "Monospace 12") ;; Para Linux
 
 ;;-------------------------------
 ;;--- Configurações de Janela ---
