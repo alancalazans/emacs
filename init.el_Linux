@@ -1,19 +1,27 @@
-;;-------------------------------------------------------
-;;--- File: init.el                                   ---
-;;--- Author: Alan Calazans <alan2calazans@gmail.com> ---
-;;--- Last Update: qui 30 jan 2025 21:50:00 BRT       ---
-;;--- Created: dom 20 set 2020 17:38:00 BRT           ---
-;;--- License: GNU General Public License v3          ---
-;;---          <http://www.gnu.org/licenses/gpl.html> ---
-;;--- Version: 1.1                                    ---
-;;-------------------------------------------------------
-
-;;----------------------------
-;;--- Configurações gerais ---
-;;----------------------------
+;;---
+;; File: init.el
+;; Author: Alan Calazans <alan2calazans@gmail.com>
+;; Last Update: ter 04 fev 2025 10:30:00 BRT
+;; Created: dom 20 set 2020 17:38:00 BRT
+;; License: GNU General Public License v3
+;;        <http://www.gnu.org/licenses/gpl.html>
+;; Version: 2.0
+;;---
+;;---
+;; Configurações básicas {{{
+;;---
+(setq debug-on-error t)
+(setq-default coding-system-for-read 'utf-8)
+(setq-default coding-system-for-write 'utf-8)
+;;--- }}}
+;;---
+;; Configurações gerais {{{
+;;---
 (custom-set-variables
- ;; custom-set-variables foi adicionado pelo Custom.
- ;; Edite com cuidado. Seu arquivo init deve conter apenas uma instância.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(c-default-style "k&r")
  '(column-number-mode t)
@@ -22,141 +30,127 @@
    '("7178dc309d5bb89e9de6feddd71058ddf8cb947bbf08ea6c7799a03ae690449e" default))
  '(electric-pair-mode t)
  '(highlight-indent-guides-method 'character)
- '(indent-tabs-mode nil) ;; Usar espaços ao invés de tabs
+ '(indent-tabs-mode nil)
  '(indicate-buffer-boundaries 'left)
  '(js2-indent-on-enter-key t)
- '(package-selected-packages
-   '(lsp-mode yasnippet nim-mode timu-caribbean-theme timu-macos-theme move-text try use-package))
+ '(package-selected-packages '(move-text indent-guide yasnippet dracula-theme))
  '(show-paren-mode t)
  '(standard-indent 2)
  '(tab-always-indent t)
  '(tooltip-mode nil))
-
 (custom-set-faces
- ;; custom-set-faces foi adicionado pelo Custom.
- ;; Edite com cuidado.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
-
-;; Configurações básicas
-(setq-default coding-system-for-read 'utf-8)
-(setq-default coding-system-for-write 'utf-8)
-
-;;-----------------------------
-;;--- Configurações Visuais ---
-;;-----------------------------
-;; Tema
-(load-theme 'timu-caribbean t)
-
+;;--- }}}
+;;---
+;; Configurações Visuais {{{
+;;---
 ;; Remover boas vindas
 (setq inhibit-startup-message t)
-
 ;; Remover menus
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-
 ;; Remover barra de rolagem
 (scroll-bar-mode -1)
-
 ;; Rolamento suave
 (setq scroll-margin 1)
-;;(setq scroll-step 1)  ;; Rolar uma linha de cada vez
-
+;;(setq scroll-step 1);; Rolar uma linha de cada vez
 ;; Exibir números de linha
 (global-display-line-numbers-mode 1)
-
 ;; Configurar fonte padrão
-;;(set-face-attribute 'default nil :font "Consolas 12") ;; Para Windows
-(set-face-attribute 'default nil :font "Monospace 12") ;; Para Linux
-
-;;-------------------------------
-;;--- Configurações de Janela ---
-;;-------------------------------
+(set-face-attribute 'default nil :font "Consolas 12");; Para Windows
+;;(set-face-attribute 'default nil :font "Monospace 12");; Para Linux
+;;--- }}}
+;;---
+;; Configurações de Janela {{{
+;;---
 (setq initial-frame-alist
-      '((width . 80)
-        (height . 35)))
-
-;;----------------------------------
-;;--- Configurações de Tabulação ---
-;;----------------------------------
-(setq-default electric-indent-inhibit t) ;; Inibir recuo automático ao pressionar <ENTER>
-(setq-default electric-indent-mode nil)  ;; Desabilitar indentação automática
-(setq-default indent-tabs-mode nil)      ;; Usar espaços em vez de tabulações
-(setq-default tab-width 2)               ;; Largura padrão para tabulações
+      '(
+        (width . 80)
+        (height . 35)
+        )
+      )
+;;--- }}}
+;;---
+;; Configurações de Tabulação {{{
+;;---
+(setq-default electric-indent-inhibit t);; Inibir recuo automático ao pressionar <ENTER>
+(setq-default electric-indent-mode nil);; Desabilitar indentação automática
+(setq-default indent-tabs-mode nil);; Usar espaços em vez de tabulações
+(setq-default tab-width 2);; Largura padrão para tabulações
 (setq tabify nil)
-
 ;; Definir tabulações manuais
 (setq tab-stop-list
-      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82))
-
-;;-------------------------------
-;;--- Configuração de atalhos ---
-;;-------------------------------
+      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82)
+      )
+;;--- }}}
+;;---
+;; Configuração de atalhos {{{
+;;---
 (global-set-key (kbd "C-<tab>") 'other-window)
 (global-set-key (kbd "M-<down>") 'enlarge-window)
 (global-set-key (kbd "M-<up>") 'shrink-window)
 (global-set-key (kbd "M-<left>") 'enlarge-window-horizontally)
 (global-set-key (kbd "M-<right>") 'shrink-window-horizontally)
-
+;; Duplicar linhas
+(global-set-key (kbd "C-d") 'duplicate-line)
+;; Deslocar indentação
+(global-set-key (kbd "C-i") 'indent-rigidly)
 ;; Limpar espaços em branco no final das linhas
 (global-set-key (kbd "C-l") 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;;-------------------------------
-;;--- Repositórios de Pacotes ---
-;;-------------------------------
-;; Configurar repositórios de pacotes (caso ainda não esteja configurado)
+;;--- }}}
+;;---
+;; Repositórios de Pacotes {{{
+;;---
+;; Configurar repositórios de pacotes
 (require 'package)
 (setq package-archives
       '(("melpa" . "https://melpa.org/packages/")
         ("gnu" . "https://elpa.gnu.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")))
-
-(package-initialize) ;; Inicializar o sistema de pacotes
-
+(package-initialize)
 ;; Atualizar lista de pacotes se necessário
 (unless package-archive-contents
   (package-refresh-contents))
-
 ;; Instalar `use-package` se ainda não estiver instalado
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
-
-;; Requerer o `use-package`
 (require 'use-package)
 (setq use-package-always-ensure t) ;; Certificar-se de que pacotes sejam instalados automaticamente
-
-;;---------------------------------
-;;--- Configuração do Yasnippet ---
-;;---------------------------------
-;; Adicionar caminho do Yasnippet
-(add-to-list 'load-path "~/.emacs.d/elpa/yasnippet-20240406.1314")
-(require 'yasnippet)
-(yas-global-mode 1)
-
-;;------------------------------------
-;;--- Configuração do Indent-guide ---
-;;------------------------------------
-;; Adicionar caminho do Yasnippet
-(add-to-list 'load-path "~/.emacs.d/elpa/indent-guide-20160630")
-(require 'indent-guide)
-(indent-guide-global-mode)
-
-;;----------------------------
-;;--- Outras Configurações ---
-;;----------------------------
+;; Tema dracula-theme
+(use-package dracula-theme
+  :config
+  (load-theme 'dracula t))
+;; Yasnippet
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+;; Indent-guide
+(use-package indent-guide
+  :config
+  (indent-guide-global-mode))
+;; Move-text
+(use-package move-text
+  :bind (("C-M-<up>" . move-text-up)
+         ("C-M-<down>" . move-text-down)))
+;;--- }}}
+;;---
+;; Outras Configurações {{{
+;;---
 ;; Tornar "yes/no" em "y/n"
 (fset 'yes-or-no-p 'y-or-n-p)
-
 ;; Desabilitar auto-save e backup
-(setq auto-save-default nil) ;; Desabilitar #autosave#
-(setq make-backup-files nil) ;; Desabilitar backup~
-
+(setq auto-save-default nil);; Desabilitar #autosave#
+(setq make-backup-files nil);; Desabilitar backup~
 ;; Habilitar CUA mode (atalhos padrão de copiar/colar)
 (cua-mode t)
-
 ;; Atalhos úteis
-(winner-mode t)  ;; Ctrl + arrows para navegar entre janelas
-(setq visible-bell t)  ;; Substitui o som do sino por um piscar de tela
-
+(winner-mode t);; Ctrl + arrows para navegar entre janelas
+(setq visible-bell t);; Substitui o som do sino por um piscar de tela
 ;; Ativar suporte ao mouse
 (mwheel-install)
+;;--- }}}
