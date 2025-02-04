@@ -61,8 +61,8 @@
 ;; Exibir números de linha
 (global-display-line-numbers-mode 1)
 ;; Configurar fonte padrão
-(set-face-attribute 'default nil :font "Consolas 12");; Para Windows
-;;(set-face-attribute 'default nil :font "Monospace 12");; Para Linux
+;;(set-face-attribute 'default nil :font "Consolas 12");; Para Windows
+(set-face-attribute 'default nil :font "Monospace 12");; Para Linux
 ;;--- }}}
 ;;---
 ;; Configurações de Janela {{{
