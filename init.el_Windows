@@ -33,7 +33,7 @@
  '(indent-tabs-mode nil)
  '(indicate-buffer-boundaries 'left)
  '(js2-indent-on-enter-key t)
- '(package-selected-packages '(move-text indent-guide yasnippet dracula-theme))
+ '(package-selected-packages '(neotree move-text indent-guide yasnippet dracula-theme))
  '(show-paren-mode t)
  '(standard-indent 2)
  '(tab-always-indent t)
@@ -61,8 +61,8 @@
 ;; Exibir números de linha
 (global-display-line-numbers-mode 1)
 ;; Configurar fonte padrão
-(set-face-attribute 'default nil :font "Consolas 12");; Para Windows
-;;(set-face-attribute 'default nil :font "Monospace 12");; Para Linux
+;;(set-face-attribute 'default nil :font "Consolas 12");; Para Windows
+(set-face-attribute 'default nil :font "Monospace 12");; Para Linux
 ;;--- }}}
 ;;---
 ;; Configurações de Janela {{{
@@ -78,7 +78,7 @@
 ;; Configurações de Tabulação {{{
 ;;---
 (setq-default electric-indent-inhibit t);; Inibir recuo automático ao pressionar <ENTER>
-(setq-default electric-indent-mode nil);; Desabilitar indentação automática
+(setq-default electric-indent-mode t);; Para desabilitar indentação automática `nil`
 (setq-default indent-tabs-mode nil);; Usar espaços em vez de tabulações
 (setq-default tab-width 2);; Largura padrão para tabulações
 (setq tabify nil)
@@ -120,11 +120,19 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 (require 'use-package)
-(setq use-package-always-ensure t) ;; Certificar-se de que pacotes sejam instalados automaticamente
+(setq use-package-always-ensure t);; Certificar-se de que pacotes sejam instalados automaticamente
 ;; Tema dracula-theme
-(use-package dracula-theme
+;;(use-package dracula-theme
+;;  :config
+;;  (load-theme 'dracula t))
+;; Tema dracula-theme
+(use-package molokai-theme
   :config
-  (load-theme 'dracula t))
+  (load-theme 'molokai t))
+;; Explorador neotree
+(use-package neotree
+  :config
+  (global-set-key [f8] 'neotree-toggle))
 ;; Yasnippet
 (use-package yasnippet
   :config
