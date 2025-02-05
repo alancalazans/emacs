@@ -11,3 +11,5 @@ requirejs.config({
     'main': 'main'
   }
 });
+
+requirejs(['main']);
