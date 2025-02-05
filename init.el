@@ -60,9 +60,16 @@
 ;;(setq scroll-step 1) ;; Rolar uma linha de cada vez
 ;; Exibir números de linha
 (global-display-line-numbers-mode 1)
-;; Configurar fonte padrão
-;;(set-face-attribute 'default nil :font "Consolas 12") ;; Para Windows
-(set-face-attribute 'default nil :font "Monospace 12") ;; Para Linux
+;; Configurar a fonte de acordo com o sistema operacional
+(cond
+  ((eq system-type 'windows-nt) ;; Verifica se o sistema é Windows
+   (set-face-attribute 'default nil :font "Consolas 12"))
+  ((eq system-type 'gnu/linux) ;; Verifica se o sistema é GNU/Linux
+   (set-face-attribute 'default nil :font "Monospace 12"))
+  ((eq system-type 'darwin) ;; Verifica se o sistema é macOS (opcional)
+   (set-face-attribute 'default nil :font "Monaco 12"))
+  (t ;; Caso padrão para outros sistemas operacionais
+   (set-face-attribute 'default nil :font "Monospace 12")))
 ;;--- }}} Fim - Configurações Visuais
 ;;---
 ;; Configurações de janela {{{
