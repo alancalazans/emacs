@@ -181,6 +181,14 @@
 ;;---
 ;; Outras Configurações {{{
 ;;---
+;; Exibir espaços e tabs no final das linhas
+;;(set-face-attribute 'trailing-whitespace nil
+;;                    :background "red"   ; Cor de fundo
+;;                    :foreground "white" ; Cor do texto
+;;                    :weight 'bold)      ; Estilo em negrito
+(setq-default show-trailing-whitespace t)
+;; Remover espaços e tabs no final das linhas ao salvar o arquivo
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;; Tornar "yes/no" em "y/n"
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; Desabilitar auto-save e backup
