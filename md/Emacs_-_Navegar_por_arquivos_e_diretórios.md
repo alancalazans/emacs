@@ -1,4 +1,4 @@
-# Navegar por arquivos e diretórios
+# Emacs - Navegar por arquivos e diretórios
 
 O Emacs oferece várias opções para explorar e navegar por arquivos e diretórios. Essas ferramentas são essenciais para gerenciar projetos, navegar em pastas e abrir arquivos rapidamente. Aqui estão as principais opções de exploradores de arquivos disponíveis no Emacs:
 

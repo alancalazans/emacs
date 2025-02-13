@@ -1,4 +1,4 @@
-# Pacotes essenciais de programação no Emacs
+# Emacs - Pacotes essenciais de programação
 
 O Emacs é um editor de texto altamente personalizável e extensível, e existem muitos pacotes que podem melhorar sua experiência de codificação. Aqui estão alguns dos pacotes essenciais para codificação no Emacs:
 
