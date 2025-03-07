@@ -11,61 +11,47 @@ Para habilitar o **syntax highlighting** para scripts OCaml no Emacs, você pode
    M-x package-install RET tuareg RET
    ```
 
-2. **Configurar o modo para abrir arquivos OCaml**: Adicione ao seu arquivo de configuração do Emacs (geralmente `~/.emacs` ou `~/.emacs.d/init.el`) as seguintes linhas para garantir que você está usando o `tuareg-mode` para arquivos com extensão `.ml` ou `.mli`:
+2. **Configurar o modo para abrir arquivos OCaml**:
 
-   ```lisp
-   (require 'tuareg)
-   (add-to-list 'auto-mode-alist '("\\.ml[ily]?$" . tuareg-mode))
-   (add-to-list 'auto-mode-alist '("\\.top$" . tuareg-mode))
-   ```
+   Se você estiver usando o `use-package` (um gerenciador de pacotes popular para Emacs), pode configurar o `tuareg-mode` de forma mais organizada:
 
-   **ou**
+   Adicione ao seu arquivo de configuração do Emacs (geralmente `~/.emacs` ou `~/.emacs.d/init.el`) as seguintes linhas para garantir que você está usando o `tuareg-mode` para arquivos com extensão `.ml` ou `.mli`:
 
    ```lisp
    (use-package tuareg
-     :mode (("\\.ml[ily]?$" . tuareg-mode)
-            ("\\.top$" . tuareg-mode))
-     :ensure t)
+     :ensure t
+     :mode (("\\.ml\\'" . tuareg-mode)
+            ("\\.mli\\'" . tuareg-mode)))
    ```
 
-   **Trecho completo**
+   > **Obs.:** Isso garante que o `tuareg-mode` seja instalado e configurado automaticamente.
+   >
+   > **Obs2.:** A mensagem **`Package cl is deprecated`** aparece porque o pacote `cl` (Common Lisp) foi substituído pelo `cl-lib` em versões mais recentes do Emacs. Alguns pacotes mais antigos (ou configurações) ainda usam `(require 'cl)`, o que gera esse aviso. Para resolver o problema, siga os passos abaixo:
+   >
+   > Adicione ao seu arquivo de configuração do Emacs (`~/.emacs` ou `~/.emacs.d/init.el`) a seguinte linha para desabilitar o aviso específico relacionado ao `cl`:
+   >
+   > ```lisp
+   > ;; Desabilitar aviso de depreciação do pacote 'cl'
+   > (setq byte-compile-warnings '(cl-functions))
+   > ```
+   >
+   > ### **Nota adicional**
+   >
+   > O `tuareg-mode` geralmente funciona normalmente mesmo com o `cl` depreciado.
+
+   **Trecho completo para inclusão no arquivo (`~/.emacs.d/init.el`)**
 
    ```lisp
    ;;---
-   ;; Tuareg - Highlighting OCaml {{{
+   ;; Tuareg - OCaml syntax highligth {{{
    ;;---
-   ;;(require 'tuareg)
-   ;;(add-to-list 'auto-mode-alist '("\\.ml[ily]?$" . tuareg-mode))
-   ;;(add-to-list 'auto-mode-alist '("\\.top$" . tuareg-mode))
    (use-package tuareg
-     :mode (("\\.ml[ily]?$" . tuareg-mode)
-            ("\\.top$" . tuareg-mode))
-     :ensure t)
-   ;;--- }}} Fim - Tuareg - Highlighting OCaml
+     :ensure t
+     :mode (("\\.ml\\'" . tuareg-mode)
+            ("\\.mli\\'" . tuareg-mode)))
+   ;; Desabilitar aviso de depreciação do pacote 'cl'
+   (setq byte-compile-warnings '(cl-functions))
+   ;;--- }}} Fim - Tuareg - OCaml syntax highligth
    ```
 
 3. **Recarregar o Emacs**: Após fazer as alterações, salve seu arquivo de configuração e recarregue o Emacs. Agora, ao abrir arquivos OCaml, a syntax highlighting deverá ser ativado automaticamente! 🎉
-
-------
-
-**Instalar o ocaml-mode (para versão do emacs a partir da versão 29.1)**:
-
-**Descrição**: O modo oficial para edição de código OCaml no Emacs. Ele fornece syntax highlighting básico, indentação e suporte para compilação.
-
-1. **Instalar o ocaml-mode**:
-
-   ```emacs
-   M-x package-refresh-contents
-   M-x package-install RET ocaml-mode RET
-   ```
-
-2. **Configurar o modo para abrir arquivos OCaml**: Adicione ao seu arquivo de configuração do Emacs (geralmente `~/.emacs` ou `~/.emacs.d/init.el`) as seguintes linhas para garantir que você está usando o `ocaml-mode` para arquivos com extensão `.ml` ou `.mli`:
-
-   ```lisp
-   ;; Carrega o ocaml-mode automaticamente para arquivos .ml e .mli
-   (autoload 'ocaml-mode "ocaml-mode" "Major mode for editing OCaml code." t)
-   (add-to-list 'auto-mode-alist '("\\.ml\\'" . ocaml-mode))
-   (add-to-list 'auto-mode-alist '("\\.mli\\'" . ocaml-mode))
-   ;; Opcional: Configurações adicionais para ocaml-mode
-   (setq ocaml-indent-offset 2)  ;; Define o tamanho da indentação
-   ```
