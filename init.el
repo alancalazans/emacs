@@ -33,7 +33,8 @@
  '(indent-tabs-mode nil)
  '(indicate-buffer-boundaries 'left)
  '(js2-indent-on-enter-key t)
- '(package-selected-packages '(neotree move-text indent-guide yasnippet dracula-theme))
+ '(package-selected-packages
+   '(rust-mode neotree move-text indent-guide yasnippet dracula-theme))
  '(show-paren-mode t)
  '(standard-indent 2)
  '(tab-always-indent t)
@@ -163,6 +164,13 @@
   :config
   (indent-guide-global-mode))
 ;;--- }}} Fim - Indent-guide
+;;---
+;; Rust-mode {{{
+;;---
+(use-package rust-mode
+  :config
+  (rust-mode))
+;;--- }}} Fim - Rust-mode
 ;;---
 ;; Duplicate-thing {{{
 ;;---
